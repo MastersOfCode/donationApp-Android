@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivityMerchant"
+            android:name=".LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivityMerchant"></activity>
         <activity android:name=".MainActivityClient"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="029aa5ddf375b76b7454b67bc970fa812b744334" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
