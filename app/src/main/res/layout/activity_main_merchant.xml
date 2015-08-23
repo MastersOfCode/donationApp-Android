@@ -35,8 +35,47 @@
                 android:text="Client"/>
         </LinearLayout>
 
+        <ListView
+            android:id="@+id/lsv_products"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+        </ListView>
 
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name: "/>
+                <EditText
+                    android:id="@+id/edt_product_name"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price: "/>
+                <EditText
+                    android:id="@+id/edt_product_price"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Register"/>
 
     </LinearLayout>
 

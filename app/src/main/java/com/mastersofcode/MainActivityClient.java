@@ -5,7 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by T on 2015/08/22.
@@ -18,6 +22,10 @@ public class MainActivityClient extends Activity {
     TextView txvUserName;
     TextView txvTotal;
     TextView txvSpendable;
+    ListView lsvProducts;
+    List<Product> products;
+    CustomAdapterProduct customAdapterProduct;
+
 
     /*** for debug ***/
     TextView debugTextView;
@@ -30,10 +38,14 @@ public class MainActivityClient extends Activity {
         debugTextView = (TextView)findViewById(R.id.txv_debug);
         debugTextView.setText("Debug: You are a client");
 
+        products = new ArrayList<Product>();
+
         findViews();
         buttonHandler();
 
-        updateAccount();
+        updateAccountInfo();
+        readData();
+
     }
 
     void findViews()
@@ -44,6 +56,7 @@ public class MainActivityClient extends Activity {
         txvUserName = (TextView)findViewById(R.id.txv_user_name);
         txvTotal = (TextView)findViewById(R.id.txv_total);
         txvSpendable = (TextView)findViewById(R.id.txv_spendable);
+        lsvProducts = (ListView)findViewById(R.id.lsv_products);
     }
 
     void buttonHandler()
@@ -67,11 +80,23 @@ public class MainActivityClient extends Activity {
         });
     }
 
-    void updateAccount()
+    void updateAccountInfo()
     {
         txvAccountNum.setText(": 1234-1234-1234-1234");
         txvUserName.setText(": Tak Sato");
         txvTotal.setText(": $1,234,000");
         txvSpendable.setText(": $300,000");
     }
+
+    void readData()
+    {
+        Product product = new Product();
+        product.setName("name1");
+        product.setPrice("price1");
+
+        products.add(product);
+        customAdapterProduct = new CustomAdapterProduct(this, 0, products);
+        lsvProducts.setAdapter(customAdapterProduct);
+    }
+
 }
