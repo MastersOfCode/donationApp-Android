@@ -38,6 +38,9 @@ public class CustomAdapterProduct extends ArrayAdapter<Product>
         TextView txvPrice = (TextView)convertView.findViewById(R.id.txv_product_price);
         txvPrice.setText(product.getPrice());
 
+        TextView txvQuantity = (TextView)convertView.findViewById(R.id.txv_product_quantity);
+        txvQuantity.setText(product.getQuantity());
+
         return convertView;
     }
 }

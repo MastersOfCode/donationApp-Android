@@ -44,7 +44,7 @@ public class MainActivityClient extends Activity {
         buttonHandler();
 
         updateAccountInfo();
-        readData();
+        //readData();
 
     }
 
@@ -90,9 +90,7 @@ public class MainActivityClient extends Activity {
 
     void readData()
     {
-        Product product = new Product();
-        product.setName("name1");
-        product.setPrice("price1");
+        Product product = new Product("name1", "price1", "quantity1");
 
         products.add(product);
         customAdapterProduct = new CustomAdapterProduct(this, 0, products);

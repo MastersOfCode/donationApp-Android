@@ -1,6 +1,7 @@
 package com.mastersofcode;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 //import com.digits.sdk.android.Digits;
@@ -27,20 +28,17 @@ public class LoginActivity extends Activity
     private static final String TWITTER_KEY = "XPoq5y490spjwXVTmTyhwePew";
     private static final String TWITTER_SECRET = "SM2ybwt7K6fBHdYqk98hrX7uOY8lEPCYHHQCuMnhwx6CHFl1vD";
 
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new TwitterCore(authConfig), new Digits());
-        //TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        //Fabric.with(this, new TwitterCore(authConfig), new Digits());
         setContentView(R.layout.activity_login);
         DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {
             @Override
             public void success(DigitsSession session, String phoneNumber) {
-                // Do something with the session and phone number
+                Intent intent = new Intent(LoginActivity.this, MainActivityMerchant.class);
+                startActivity(intent);
             }
 
             @Override
@@ -48,18 +46,7 @@ public class LoginActivity extends Activity
                 // Do something on failure
             }
         });
-        findViews();
-        buttonHandler();
     }
 
-    void findViews()
-    {
-
-    }
-
-    void buttonHandler()
-    {
-
-    }
 
 }
